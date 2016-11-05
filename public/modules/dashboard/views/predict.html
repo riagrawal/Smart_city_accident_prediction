@@ -1,0 +1,380 @@
+
+    <div class="container body" >
+      <div class="main_container" >
+        <div class="col-md-3 left_col" >
+          <div class="left_col scroll-view">
+            <div class="navbar nav_title" style="border: 0;">
+              <a href="index.html" class="site_title"><i class="fa fa-car"></i> <span></span></a>
+            </div>
+
+            <div class="clearfix"></div>
+
+            <br />
+
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+              <div class="menu_section">
+                <h3>General</h3>
+                <ul class="nav side-menu">
+                  <li><a><i class="fa fa-home"></i> Home <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="dashboard.html">Dashboard</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-edit"></i> Forms <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                      <li><a href="predict.html">Predict an accident Form</a></li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-table"></i> Tables <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                       <li><a href="accident_table.html">Accident Count Table</a></li>
+                      <li><a href="weather_table.html">Weather Table</a></li>
+                      <li><a href="gender_table.html">Gender Table</a></li>
+                      <li><a href="age_table.html">Age Table</a></li>
+                      <li><a href="crash_table.html">Carsh Type Table</a></li>
+                      <li><a href="map_table.html">Map Table</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!-- /sidebar menu -->
+
+          </div>
+        </div>
+
+        <!-- top navigation -->
+        <div class="top_nav">
+          <div class="nav_menu">
+            <nav>
+              <div>
+                <a ><i ><font size="20">   Smart City Accident Analysis and Prediction</font></i></a>
+              </div>
+            </nav>
+          </div>
+        </div>
+        <!-- /top navigation -->
+
+        <!-- page content -->
+        <div class="right_col" role="main" >
+            <div class="clearfix"></div>
+                
+
+              <div class="col-md-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Predict an Accident Prone Area <small></small></h2>
+                    <ul class="nav navbar-right panel_toolbox">
+                      <li class="dropdown">
+                        
+                       <a href ="index.html"> <ul class="fa fa-arrow-left" role="index.html">
+                        </ul></a>
+                      </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content" >
+                    <br />
+                    <form class="form-horizontal form-label-left">
+
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Intersection</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.first">
+                            <option>Choose option</option>
+                            <option>Four-Way</option>
+                            <option>T</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Light Condition</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.second">
+                            <option>Choose option</option>
+                            <option>DAY</option>
+                            <option>DARK NO LT</option>
+                            <option>DARK W/LT</option>
+                            <option>DUSK/DAWN</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Weather</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.third">
+                            <option>Choose option</option>
+                            <option>Rain</option>
+                            <option>Clear</option>
+                            <option>Fog</option>
+                            <option>Cloudy</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Road Condition</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.fourth">
+                            <option>Choose option</option>
+                            <option>Dry</option>
+                            <option>Wet</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Crash Type</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.fifth">
+                            <option>Choose option</option>
+                            <option>REAR</option>
+                            <option>SIDESWIPE</option>
+                            <option>BROAD</option>
+                            <option>OTHER</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Gender</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.sixth">
+                            <option>Choose option</option>
+                            <option>M</option>
+                            <option>F</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Violation Type</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.seventh">
+                            <option>Choose option</option>
+                            <option>Speeding</option>
+                            <option>Run Red Light</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Timestamp</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.eighth">
+                            <option>Choose option</option>
+                            <option>Speeding</option>
+                            <option>Run Red Light</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Vehicle Type</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.ninth">
+                            <option>Choose option</option>
+                            <option>Car</option>
+                            <option>Bike</option>
+                            <option>Van</option>
+                            <option>PU/Panel Truck</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Algorithm</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <select class="form-control" ng-model = "thrs.tenth">
+                            <option>Choose option</option>
+                            <option>Linear</option>
+                            <option>Stepwise Linear</option>
+                            <option>Principle Component</option>
+                            <option>Partial Least Sqaure</option>
+                            <option>Gradient Boost Machine</option>
+                          </select>
+                        </div>
+                      </div>
+
+                      <div class="ln_solid"></div>
+                      <div class="form-group">
+                        <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                          <button type="submit" class="btn btn-success" ng-click="sendVal()">Submit</button>
+                          <a class="btn" href="index.html">Cancel</a>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+                </div>
+              </div>
+             
+             <div class="col-md-6 col-sm-6 col-xs-12">
+
+              <div class="row">
+
+                <div class="col-md-12 col-sm-12 col-xs-12" >
+                  <div class="x_panel">
+                    <div class="x_title">
+                      <h2> Predicted Accident Location<small>Latitude :</small><small id="latitude">{{lat}}</small><small>Longitude :</small><small id="longitude">{{longitude}}</small></h2>
+                      <div class="clearfix"></div>
+                    </div>
+                    <div class="x_content"  style="height: 280px; ">
+                      <div class="dashboard-widget-content">
+                        <div id="map" class="col-md-8 col-sm-12 col-xs-12" style="width:100%;height:275px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+              <!-- line graph -->
+              <div class="col-md-6 col-sm-6 col-xs-12">
+                <div class="x_panel">
+                  <div class="x_title">
+                    <h2>Accuracy Graph <small>Algorithm wise</small></h2>
+                    <div class="clearfix"></div>
+                  </div>
+                  <div class="x_content2">
+                    <div id="graph_line" style="width:100%; height:184px;"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    <div class="row" style="height: 75px;">
+      <div>
+          <small id="lin">{{lin}}</small><br>
+          <small id="stp">{{step}}</small><br>
+          <small id="pri">{{prin}}</small><br>
+          <small id="par">{{par}}</small><br>
+          <small id="gbm">{{gbm}}</small><br>
+      </div>
+    </div>
+            
+    <!-- jQuery -->
+    <script src="../../../vendors/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="../../../vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- FastClick -->
+    <script src="../../../vendors/fastclick/lib/fastclick.js"></script>
+    <!-- NProgress -->
+    <script src="../../../vendors/nprogress/nprogress.js"></script>
+    <!-- Chart.js -->
+    <script src="../../../vendors/Chart.js/dist/Chart.min.js"></script>
+    <!-- gauge.js -->
+    <script src="../../../vendors/gauge.js/dist/gauge.min.js"></script>
+    <!-- bootstrap-progressbar -->
+    <script src="../../../vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <!-- iCheck -->
+    <script src="../../../vendors/iCheck/icheck.min.js"></script>
+    <!-- Flot -->
+    <script src="../../../vendors/Flot/jquery.flot.js"></script>
+    <script src="../../../vendors/Flot/jquery.flot.pie.js"></script>
+    <script src="../../../vendors/Flot/jquery.flot.time.js"></script>
+    <script src="../../../vendors/Flot/jquery.flot.stack.js"></script>
+    <script src="../../../vendors/Flot/jquery.flot.resize.js"></script>
+    <!-- Flot plugins -->
+    <script src="../../../vendors/flot.orderbars/js/jquery.flot.orderBars.js"></script>
+    <script src="../../../vendors/flot-spline/js/jquery.flot.spline.min.js"></script>
+    <script src="../../../vendors/flot.curvedlines/curvedLines.js"></script>
+    <!-- DateJS -->
+    <script src="../../../vendors/DateJS/build/date.js"></script>
+    <!-- JQVMap -->
+    <script src="../../../vendors/jqvmap/dist/jquery.vmap.js"></script>
+    <script src="../../../vendors/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+    <script src="../../../vendors/jqvmap/examples/js/jquery.vmap.sampledata.js"></script>
+    <!-- bootstrap-daterangepicker -->
+    <script src="../../../vendors/moment/min/moment.min.js"></script>
+    <script src="../../../vendors/bootstrap-daterangepicker/daterangepicker.js"></script>
+
+    <!-- morris.js -->
+    <script src="../../../vendors/raphael/raphael.min.js"></script>
+    <script src="../../../vendors/morris.js/morris.min.js"></script> 
+
+    <!-- Custom Theme Scripts -->
+    <script src="../../../build/js/custom.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.23/angular.min.js"></script>
+
+
+    <script>
+    
+      //access the html value inside the script tag using
+      var predicted_latitude = parseFloat(document.getElementById("latitude").innerHTML);
+      var predicted_longitude = parseFloat(document.getElementById("longitude").innerHTML);
+      
+      function initMap() {
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 3,
+          center: {lat: 37.024, lng: -121.887}
+        });
+
+        // Create an array of alphabetical characters used to label the markers.
+        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+        // Add some markers to the map.
+        // Note: The code uses the JavaScript Array.prototype.map() method to
+        // create an array of markers based on a given "locations" array.
+        // The map() method here has nothing to do with the Google Maps API.
+        var markers = locations.map(function(location, i) {
+          return new google.maps.Marker({
+            position: location,
+            label: labels[i % labels.length]
+          });
+        });
+
+        // Add a marker clusterer to manage the markers.
+        var markerCluster = new MarkerClusterer(map, markers,
+            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+      }
+      var locations = [
+        {lat: predicted_latitude, lng: predicted_longitude}
+
+      ]
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASksSOC7867Vvv08lVCeDSX2PLJMlM7GI&callback=initMap">
+    </script>
+
+    <!-- morris.js -->
+    <script>
+
+      var linear =parseFloat(document.getElementById("lin").innerHTML);
+      var step = parseFloat(document.getElementById("stp").innerHTML);
+      var prin =parseFloat(document.getElementById("pri").innerHTML);
+      var partial =parseFloat(document.getElementById("par").innerHTML);
+      var gbm =parseFloat(document.getElementById("gbm").innerHTML);
+      // var linear = {{lin}};
+      // var step = {{step}};
+      // var prin ={{prin}};
+      // var partial ={{par}};
+      // var gbm = {{gbm}};
+    
+      $(document).ready(function() {
+
+        Morris.Line({
+          element: 'graph_line',
+          xkey: 'algo',
+          ykeys: ['rmse'],
+          xLabelAngle: 20,
+          parseTime:false,
+          ymax : 1, ymin : 0.75,
+          lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          data: [
+            {"algo": 'Linear', rmse:linear },
+            {"algo": 'Stepwise', rmse: step},
+            {"algo": 'Principle_Comp', rmse: prin},
+            {"algo": 'Partial_least_SQ', rmse: partial},
+            {"algo": 'GBM', rmse: gbm}
+          ],
+          resize: true
+        });
+
+        $MENU_TOGGLE.on('click', function() {
+          $(window).resize();
+        });
+      });
+    </script>
+    <!-- /morris.js -->
+
+
+ 
