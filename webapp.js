@@ -30,9 +30,8 @@
    app.post('/api/threshold', function(req, res) {
         console.log("successful POST");
         console.log("input is.....",req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh, req.body.eighth, req.body.ninth, req.body.tenth);
-
         var linear = R("R/linear.R")
-        .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,"2016-11-30 21:58:00", req.body.ninth)
+        .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
         .callSync();
         console.log("latitude: ", linear[0]);
         console.log("longitude: ", linear[1]);
