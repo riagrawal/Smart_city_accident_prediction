@@ -84,7 +84,7 @@
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control" ng-model = "thrs.first">
                             <option>Choose option</option>
-                            <option>Four-Way</option>
+                            <option >Four-Way</option>
                             <option>T</option>
                           </select>
                         </div>
@@ -211,7 +211,7 @@
                 <div class="col-md-12 col-sm-12 col-xs-12" >
                   <div class="x_panel">
                     <div class="x_title">
-                      <h2> Predicted Accident Location<small>Latitude :</small><small id="latitude" value="2423">{{lat}}</small><small>Longitude :</small><small id="longitude">{{longitude}}</small></h2>
+                      <h2> Predicted Accident Location<small>Latitude :</small><small id="latitude">{{lat}}</small><small>Longitude :</small><small id="longitude">{{longitude}}</small></h2>
                       <div class="clearfix"></div>
                     </div>
                     <div class="x_content"  style="height: 280px; ">
@@ -318,7 +318,10 @@
 
         // Create an array of alphabetical characters used to label the markers.
         var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var locations = [
+        {lat: parseFloat(predicted_latitude), lng: parseFloat(predicted_longitude)}
 
+         ]
         // Add some markers to the map.
         // Note: The code uses the JavaScript Array.prototype.map() method to
         // create an array of markers based on a given "locations" array.
@@ -334,10 +337,7 @@
         var markerCluster = new MarkerClusterer(map, markers,
             {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
       }
-      var locations = [
-        {lat: parseFloat(predicted_latitude), lng: parseFloat(predicted_longitude)}
-
-      ]
+      
     </script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
@@ -353,11 +353,7 @@
       var prin =parseFloat(document.getElementById("pri").innerHTML);
       var partial =parseFloat(document.getElementById("par").innerHTML);
       var gbm =parseFloat(document.getElementById("gbm").innerHTML);
-      // var linear = {{lin}};
-      // var step = {{step}};
-      // var prin ={{prin}};
-      // var partial ={{par}};
-      // var gbm = {{gbm}};
+
       function graph(){
         setTimeout(function(){ 
            linear =parseFloat(document.getElementById("lin").innerHTML);
