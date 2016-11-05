@@ -30,15 +30,40 @@
    app.post('/api/threshold', function(req, res) {
         console.log("successful POST");
         console.log("input is.....",req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh, req.body.eighth, req.body.ninth, req.body.tenth);
+        if(req.body.tenth == "Linear"){
         var linear = R("R/linear.R")
         .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
         .callSync();
+    
+        }
+        if(req.body.tenth == "Stepwise Linear"){
+        var linear = R("R/step_linear.R")
+        .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
+        .callSync();
+        
+        }
+        if(req.body.tenth == "Principle Component"){
+        var linear = R("R/principle_component.R")
+        .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
+        .callSync();
+        
+        }
+        if(req.body.tenth == "Partial Least Sqaure"){
+        var linear = R("R/partial_least_square.R")
+        .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
+        .callSync();
+      
+        }
+        if(req.body.tenth == "Gradient Boost Machine"){
+        var linear = R("R/gbm.R")
+        .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
+        .callSync();
+        
+        }
         console.log("latitude: ", linear[0]);
         console.log("longitude: ", linear[1]);
         console.log((linear[0]+" "+linear[1]).split(" ")[0]);
         console.log((linear[0]+" "+linear[1]).split(" ")[1]);
-        // console.log(toString(linear[0])+" "+toString(linear[1]).split(" ")[0]);
-        // console.log(toString(linear[0])+" "+toString(linear[1]).split(" ")[1]);
         res.header("Access-Control-Allow-Origin", "*");
         res.send(linear[0]+" "+linear[1]);
         res.end();
