@@ -304,23 +304,24 @@
           predicted_latitude=parseFloat(document.getElementById("latitude").innerHTML);
           predicted_longitude=parseFloat(document.getElementById("longitude").innerHTML);
           initMap();
-      // alert(parseFloat(document.getElementById("latitude").innerHTML));
-      // alert(parseFloat(document.getElementById("longitude").innerHTML));
       }, 3000);
       }
       
       function initMap() {
-        //alert(predicted_latitude);
-        //alert(predicted_longitude);
+    
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
           center: {lat: 37.024, lng: -121.887}
         });
 
         // Create an array of alphabetical characters used to label the markers.
-        var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var labels = '12345';
         var locations = [
-        {lat: parseFloat(predicted_latitude), lng: parseFloat(predicted_longitude)}
+        {lat: parseFloat(predicted_latitude), lng: parseFloat(predicted_longitude)},
+        {lat: parseFloat(predicted_latitude)-0.02, lng: parseFloat(predicted_longitude)-0.015},
+        {lat: parseFloat(predicted_latitude)-0.01, lng: parseFloat(predicted_longitude)-0.03},
+        {lat: parseFloat(predicted_latitude)-0.045, lng: parseFloat(predicted_longitude)-0.025},
+        {lat: parseFloat(predicted_latitude)-0.025, lng: parseFloat(predicted_longitude)-0.0378}
 
          ]
         // Add some markers to the map.

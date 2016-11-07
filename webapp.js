@@ -31,30 +31,35 @@
         console.log("successful POST");
         console.log("input is.....",req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh, req.body.eighth, req.body.ninth, req.body.tenth);
         if(req.body.tenth == "Linear"){
+        console.log("Inside Linear Regression");    
         var linear = R("R/linear.R")
         .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
         .callSync();
     
         }
         if(req.body.tenth == "Stepwise Linear"){
+        console.log("Inside Stepwise Linear Regression");     
         var linear = R("R/step_linear.R")
         .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
         .callSync();
         
         }
         if(req.body.tenth == "Principle Component"){
+        console.log("Inside Principle Component"); 
         var linear = R("R/principle_component.R")
         .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
         .callSync();
         
         }
         if(req.body.tenth == "Partial Least Sqaure"){
+        console.log("Inside Partial Least Square Regression"); 
         var linear = R("R/partial_least_square.R")
         .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
         .callSync();
       
         }
         if(req.body.tenth == "Gradient Boost Machine"){
+        console.log("Inside Gradient Boost Machine Regression"); 
         var linear = R("R/gbm.R")
         .data(req.body.first, req.body.second, req.body.third, req.body.fourth, req.body.fifth, req.body.sixth, req.body.seventh,(req.body.eighth).split("T")[0]+" "+(req.body.eighth).split("T")[1], req.body.ninth)
         .callSync();
