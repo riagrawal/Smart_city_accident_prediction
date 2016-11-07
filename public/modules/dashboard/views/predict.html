@@ -181,7 +181,7 @@
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Algorithm</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
-                          <select class="form-control" ng-model = "thrs.tenth">
+                          <select class="form-control" ng-model = "thrs.tenth" onChange="delivery(this)" id="algo">
                             <option>Choose option</option>
                             <option>Linear</option>
                             <option>Stepwise Linear</option>
@@ -298,13 +298,26 @@
       //access the html value inside the script tag using
       var predicted_latitude ;
       var predicted_longitude ;
+      var algorithm;
+      function delivery(){
+        algorithm = document.getElementById("algo").value;
+      }
       function check(){
+        if(algorithm == "Linear"){
         graph();
         setTimeout(function(){ 
           predicted_latitude=parseFloat(document.getElementById("latitude").innerHTML);
           predicted_longitude=parseFloat(document.getElementById("longitude").innerHTML);
           initMap();
-      }, 5000);
+      }, 4000);
+      }else{
+         graph_all();
+        setTimeout(function(){ 
+          predicted_latitude=parseFloat(document.getElementById("latitude").innerHTML);
+          predicted_longitude=parseFloat(document.getElementById("longitude").innerHTML);
+          initMap();
+      }, 30000);
+      }
       }
       
       function initMap() {
@@ -391,6 +404,43 @@
       // alert(parseFloat(document.getElementById("latitude").innerHTML));
       // alert(parseFloat(document.getElementById("longitude").innerHTML));
       }, 6000);
+      }
+
+      function graph_all(){
+        setTimeout(function(){ 
+           linear =parseFloat(document.getElementById("lin").innerHTML);
+          step = parseFloat(document.getElementById("stp").innerHTML);
+         prin =parseFloat(document.getElementById("pri").innerHTML);
+        partial =parseFloat(document.getElementById("par").innerHTML);
+        gbm =parseFloat(document.getElementById("gbm").innerHTML);
+          
+      $(document).ready(function() {
+
+        Morris.Line({
+          element: 'graph_line',
+          xkey: 'algo',
+          ykeys: ['rmse'],
+          xLabelAngle: 20,
+          parseTime:false,
+          ymax : 1, ymin : 0.75,
+          lineColors: ['#26B99A', '#34495E', '#ACADAC', '#3498DB'],
+          data: [
+            {"algo": 'Linear', rmse:linear },
+            {"algo": 'Stepwise', rmse: step},
+            {"algo": 'Principle_Comp', rmse: prin},
+            {"algo": 'Partial_least_SQ', rmse: partial},
+            {"algo": 'GBM', rmse: gbm}
+          ],
+          resize: true
+        });
+
+        $MENU_TOGGLE.on('click', function() {
+          $(window).resize();
+        });
+      });
+      // alert(parseFloat(document.getElementById("latitude").innerHTML));
+      // alert(parseFloat(document.getElementById("longitude").innerHTML));
+      }, 30000);
       }
     
     </script>
